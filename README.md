@@ -64,12 +64,12 @@ Responsável por gerenciar as informações de pessoas, como motoristas e funcio
 
 ---
 
-### 2. Serviço de Aluguel (AluguelService)
+### 2. Serviço de aluguel (aluguel)
 
 Gerencia os aluguéis de veículos.
 
 ### Entidades:
-- `Aluguel`
+- `aluguel`
 - `ApoliceSeguro` (relacionada a cada aluguel)
 
 ### Endpoints:
