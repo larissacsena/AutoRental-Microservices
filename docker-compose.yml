@@ -1,58 +1,58 @@
 version: '3.8'
 
 services:
-  postgres-aluguel-db:
+  postgres-rental-db:
     image: postgres:13
-    container_name: postgres-aluguel-db
+    container_name: postgres-rental-db
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=aluguel_db
+      - POSTGRES_DB=rental_db
     ports:
       - "5432:5432"
     volumes:
-      - postgres-aluguel-data:/var/lib/postgresql/data
+      - postgres-rental-data:/var/lib/postgresql/data
 
-  postgres-seguro-db:
+  postgres-insurance-db:
     image: postgres:13
-    container_name: postgres-seguro-db
+    container_name: postgres-insurance-db
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=seguro_db
+      - POSTGRES_DB=insurance_db
     ports:
       - "5433:5432"
     volumes:
-      - postgres-seguro-data:/var/lib/postgresql/data
+      - postgres-insurance-data:/var/lib/postgresql/data
 
-  aluguel-service:
+  rental-service:
     build:
-      context: ./aluguel-service
+      context: ./rental-service
       dockerfile: Dockerfile
-    container_name: aluguel-service
+    container_name: rental-service
     ports:
       - "8081:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-aluguel-db:5432/aluguel_db
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-rental-db:5432/rental_db
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: password
     depends_on:
-      - postgres-aluguel-db
+      - postgres-rental-db
 
-  seguro-service:
+  insurance-service:
     build:
-      context: ./seguro-service
+      context: ./insurance-service
       dockerfile: Dockerfile
-    container_name: seguro-service
+    container_name: insurance-service
     ports:
       - "8082:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-seguro-db:5432/seguro_db
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-insurance-db:5432/insurance_db
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: password
     depends_on:
-      - postgres-seguro-db
+      - postgres-insurance-db
 
 volumes:
-  postgres-aluguel-data:
-  postgres-seguro-data:
+  postgres-rental-data:
+  postgres-insurance-data:

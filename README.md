@@ -64,19 +64,19 @@ Responsável por gerenciar as informações de pessoas, como motoristas e funcio
 
 ---
 
-### 2. Serviço de aluguel (aluguel)
+### 2. Serviço de rental (rental)
 
 Gerencia os aluguéis de veículos.
 
 ### Entidades:
-- `aluguel`
-- `ApoliceSeguro` (relacionada a cada aluguel)
+- `rental`
+- `ApoliceSeguro` (relacionada a cada rental)
 
 ### Endpoints:
-- `GET /alugueis/{id}`: Obtém os dados de um aluguel.
-- `POST /alugueis`: Registra um novo aluguel.
-- `PUT /alugueis/{id}`: Atualiza um aluguel existente.
-- `DELETE /alugueis/{id}`: Exclui um aluguel.
+- `GET /alugueis/{id}`: Obtém os dados de um rental.
+- `POST /alugueis`: Registra um novo rental.
+- `PUT /alugueis/{id}`: Atualiza um rental existente.
+- `DELETE /alugueis/{id}`: Exclui um rental.
 
 ### Banco de Dados:
 - Tabelas para armazenar aluguéis e apólices de seguro.
@@ -85,7 +85,7 @@ Gerencia os aluguéis de veículos.
 
 ### 3. Serviço de Veículos (VeiculoService)
 
-Gerencia os veículos disponíveis para aluguel.
+Gerencia os veículos disponíveis para rental.
 
 ### Entidades:
 - `Carro`
@@ -141,7 +141,7 @@ Gerencia as apólices de seguro associadas aos aluguéis.
 - Gerencia todas as requisições externas e roteia para o serviço apropriado.
 
 ### Serviço de Mensageria:
-- Comunicação assíncrona entre os microserviços para eventos como "aluguel criado" ou "apólice gerada". Tecnologias sugeridas incluem Amazon SQS ou Apache Kafka.
+- Comunicação assíncrona entre os microserviços para eventos como "rental criado" ou "apólice gerada". Tecnologias sugeridas incluem Amazon SQS ou Apache Kafka.
 
 ### Banco de Dados:
 - Cada microserviço possui seu próprio banco de dados para garantir independência e consistência, seguindo o padrão de `database per service`.
@@ -167,11 +167,11 @@ locadora-veiculos/            <- Diretório raiz do projeto de locadora de veíc
 │   │   │       └── ...                <- Outros arquivos de recursos.
 │   ├── pom.xml                        <- Arquivo de configuração do Maven para o serviço de pessoas.
 │
-├── aluguel-service/            <- Serviço para gerenciamento de aluguéis.
+├── rental-service/            <- Serviço para gerenciamento de aluguéis.
 │   ├── src/
 │   │   ├── main/
 │   │   │   ├── java/
-│   │   │   │   └── com/locadora/aluguel/
+│   │   │   │   └── com/locadora/rental/
 │   │   │   │       ├── controller/    <- Controladores da API de aluguéis.
 │   │   │   │       ├── model/         <- Entidades relacionadas a aluguéis.
 │   │   │   │       ├── service/       <- Lógica de negócio do serviço de aluguéis.

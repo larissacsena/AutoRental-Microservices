@@ -1,16 +1,16 @@
-package aluguel.model;
+package rentalModel;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "apolices_seguro")
-public class ApoliceSeguro {
+@Table(name = "insurance_policies")
+public class InsurancePolicy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String cobertura;
-    private Double valor;
+    private String coverage;
+    private Double amount;
 }

@@ -1,4 +1,4 @@
-package seguro.record;
+package insuranceRecord;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -6,19 +6,18 @@ import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "apolices_seguro")
-public record ApoliceSeguro(
+@Table(name = "insurance_policies")
+public record InsurancePolicy(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         Long id,
 
         @NotBlank
-        String cobertura,
+        String coverage,
 
         @NotNull
-        BigDecimal valor,
+        BigDecimal amount,
 
-        String detalhes
+        String details
 ) {
 }
-
