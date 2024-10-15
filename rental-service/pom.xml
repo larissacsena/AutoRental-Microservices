@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.rentalcompany</groupId>
-	<artifactId>rental-service</artifactId>
+	<artifactId>rentalModel-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>rental-service</name>
-	<description>Service for managing people in rental company</description>
+	<name>rentalModel-service</name>
+	<description>Service for managing people in rentalModel company</description>
 	<url/>
 	<licenses>
 		<license/>

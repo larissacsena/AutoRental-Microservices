@@ -31,11 +31,12 @@ services:
       dockerfile: Dockerfile
     container_name: rental-service
     ports:
-      - "8081:8080"
+      - "8081:8081"
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-rental-db:5432/rental_db
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: password
+      SERVER_PORT: 8081
     depends_on:
       - postgres-rental-db
 
@@ -45,11 +46,12 @@ services:
       dockerfile: Dockerfile
     container_name: insurance-service
     ports:
-      - "8082:8080"
+      - "8082:8082"
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-insurance-db:5432/insurance_db
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: password
+      SERVER_PORT: 8082
     depends_on:
       - postgres-insurance-db
 

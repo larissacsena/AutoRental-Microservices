@@ -1,4 +1,4 @@
-package rentalModel;
+package com.rentalcompany.rentalservice.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

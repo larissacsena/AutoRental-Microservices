@@ -10,18 +10,20 @@
         <module name="api-gateway (1) (com.rentalcompany)" />
         <module name="config-server" />
         <module name="insurance-service" />
+        <module name="rentalModel-service" />
         <module name="vehicle-service" />
         <module name="catalog-service" />
         <module name="person-service" />
-        <module name="api-gateway" />
-        <module name="rental-service" />
         <module name="eureka-server" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="rental-service" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="api-gateway" options="-parameters" />
+      <module name="api-gateway" options="" />
       <module name="api-gateway (1) (com.rentalcompany)" options="-parameters" />
       <module name="catalog-service" options="-parameters" />
       <module name="config-server" options="-parameters" />
@@ -29,6 +31,7 @@
       <module name="insurance-service" options="-parameters" />
       <module name="person-service" options="-parameters" />
       <module name="rental-service" options="-parameters" />
+      <module name="rentalModel-service" options="-parameters" />
       <module name="vehicle-service" options="-parameters" />
     </option>
   </component>

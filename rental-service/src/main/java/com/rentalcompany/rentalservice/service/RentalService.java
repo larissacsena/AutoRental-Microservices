@@ -1,7 +1,7 @@
-package rentaService;
+package com.rentalcompany.rentalservice.service;
 
-import rentalModel.Rental;
-import rentalRepository.RentalRepository;
+import com.rentalcompany.rentalservice.model.RentalModel;
+import com.rentalcompany.rentalservice.repository.RentalRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -14,16 +14,16 @@ public class RentalService {
         this.rentalRepository = rentalRepository;
     }
 
-    public List<Rental> findAll() {
+    public List<RentalModel> findAll() {
         return rentalRepository.findAll();
     }
 
-    public Optional<Rental> findById(Long id) {
+    public Optional<RentalModel> findById(Long id) {
         return rentalRepository.findById(id);
     }
 
-    public Rental save(Rental rental) {
-        return rentalRepository.save(rental);
+    public RentalModel save(RentalModel rentalModel) {
+        return rentalRepository.save(rentalModel);
     }
 
     public void delete(Long id) {

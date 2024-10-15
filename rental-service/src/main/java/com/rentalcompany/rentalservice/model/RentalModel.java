@@ -1,4 +1,4 @@
-package rentalModel;
+package com.rentalcompany.rentalservice.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Data
 @Entity
 @Table(name = "rentals")
-public class Rental {
+public class RentalModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

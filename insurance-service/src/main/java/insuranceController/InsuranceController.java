@@ -16,6 +16,11 @@ public class InsuranceController {
         this.insuranceService = insuranceService;
     }
 
+    @GetMapping("/")
+    public String hello() {
+        return "hello-insurance";
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<InsurancePolicy> getInsurance(@PathVariable Long id) {
         Optional<InsurancePolicy> insurancePolicy = insuranceService.findById(id);

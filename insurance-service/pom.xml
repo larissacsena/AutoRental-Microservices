@@ -12,7 +12,7 @@
 	<artifactId>insurance-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>insurance-service</name>
-	<description>Service for managing people in rental company</description>
+	<description>Service for managing people in rentalModel company</description>
 	<url/>
 	<licenses>
 		<license/>

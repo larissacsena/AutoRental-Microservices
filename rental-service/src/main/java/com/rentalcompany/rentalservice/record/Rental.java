@@ -1,6 +1,6 @@
-package rentalRecord;
+package com.rentalcompany.rentalservice.record;
 
-import rentalModel.InsurancePolicy;
+import com.rentalcompany.rentalservice.model.InsurancePolicy;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
