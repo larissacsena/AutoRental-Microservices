@@ -14,6 +14,8 @@
         <module name="vehicle-service" />
         <module name="catalog-service" />
         <module name="person-service" />
+        <module name="api-gateway" />
+        <module name="rental-service" />
         <module name="eureka-server" />
       </profile>
     </annotationProcessing>

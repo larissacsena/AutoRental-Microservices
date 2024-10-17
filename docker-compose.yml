@@ -55,6 +55,24 @@ services:
     depends_on:
       - postgres-insurance-db
 
+  vehicle-service:
+    build:
+      context: ./vehicle-service
+      dockerfile: Dockerfile
+    container_name: vehicle-service
+    ports:
+      - "8084:8084"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-rental-db:5432/rental_db
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+      SERVER_PORT: 8084
+    depends_on:
+      - postgres-vehicle-db
+
+
 volumes:
   postgres-rental-data:
   postgres-insurance-data:
+  postgres-vehicle-data:
+
