@@ -1,14 +1,14 @@
-package insuranceController;
+package com.rentalcompany.insuranceservice.controller;
 
-import insuranceModel.InsurancePolicy;
-import insuranceService.InsuranceService;
+import com.rentalcompany.insuranceservice.model.InsurancePolicy;
+import com.rentalcompany.insuranceservice.service.InsuranceService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/insurance")
+@RequestMapping("/api/insurance")
 public class InsuranceController {
     private final InsuranceService insuranceService;
 

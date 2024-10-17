@@ -22,6 +22,11 @@ public class RentalController {
 
     }
 
+    @GetMapping("/test")
+    public ResponseEntity<String> test() {
+        return ResponseEntity.ok("Endpoint test funcionando");
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<RentalModel> getRental(@PathVariable Long id) {
         Optional<RentalModel> rental = rentalService.findById(id);

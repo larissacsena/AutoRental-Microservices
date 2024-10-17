@@ -1,6 +1,6 @@
-package insuranceRepository;
+package com.rentalcompany.insuranceservice.repository;
 
-import insuranceModel.InsurancePolicy;
+import com.rentalcompany.insuranceservice.model.InsurancePolicy;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface InsurancePolicyRepository extends JpaRepository<InsurancePolicy, Long> {

@@ -1,10 +1,10 @@
-package insuranceModel;
+package com.rentalcompany.insuranceservice.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
-@Entity
+@Entity(name = "InsurancePolicyModel")
 @Table(name = "insurance_policies")
 public class InsurancePolicy {
     @Id

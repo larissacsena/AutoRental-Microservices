@@ -1,7 +1,7 @@
-package insuranceService;
+package com.rentalcompany.insuranceservice.service;
 
-import insuranceModel.InsurancePolicy;
-import insuranceRepository.InsurancePolicyRepository;
+import com.rentalcompany.insuranceservice.model.InsurancePolicy;
+import com.rentalcompany.insuranceservice.repository.InsurancePolicyRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

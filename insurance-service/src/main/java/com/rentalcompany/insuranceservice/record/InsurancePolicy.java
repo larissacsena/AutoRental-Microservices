@@ -1,11 +1,11 @@
-package insuranceRecord;
+package com.rentalcompany.insuranceservice.record;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
-@Entity
+@Entity(name = "InsurancePolicyRecord")
 @Table(name = "insurance_policies")
 public record InsurancePolicy(
         @Id
