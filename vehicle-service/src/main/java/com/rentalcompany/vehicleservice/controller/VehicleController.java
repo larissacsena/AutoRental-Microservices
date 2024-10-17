@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -21,8 +22,9 @@ public class VehicleController {
     private final VehicleService vehicleService;
 
     @GetMapping
-    public String hello() {
-        return "hello-vehicle";
+    public ResponseEntity<List<VehicleModel>> listAll() {
+        List<VehicleModel> vehicles = vehicleService.listAll();
+        return ResponseEntity.ok(vehicles);
     }
 
     @GetMapping("/{id}")

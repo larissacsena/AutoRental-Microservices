@@ -1,6 +1,7 @@
 package com.rentalcompany.vehicleservice.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
@@ -56,7 +57,8 @@ public class VehicleModel {
 
     @ManyToOne
     @JoinColumn(name = "modelo_id")
-    @JsonBackReference("vehicleTypeReference")
+    //@JsonBackReference("vehicleTypeReference")
+    @JsonIgnore
     private VehicleTypeModel vehicleType;
 
     @ElementCollection

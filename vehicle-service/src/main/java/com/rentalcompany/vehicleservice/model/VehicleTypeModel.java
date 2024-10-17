@@ -1,6 +1,7 @@
 package com.rentalcompany.vehicleservice.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -30,7 +31,8 @@ public class VehicleTypeModel {
     private Category category;
 
     @OneToMany(mappedBy = "vehicleType", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference("vehicleTypeReference")
+    //@JsonManagedReference("vehicleTypeReference")
+    @JsonIgnore
     private List<VehicleModel> vehicles;
 
     @ManyToOne
