@@ -14,7 +14,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/accessorios")
+@RequestMapping("api/accessories")
 @RequiredArgsConstructor
 public class AccessoryController {
 
@@ -31,12 +31,6 @@ public class AccessoryController {
     public ResponseEntity<Optional<AccessoryModel>> findById(@PathVariable UUID id) {
         Optional<AccessoryModel> accessory = accessoryService.findById(id);
         return ResponseEntity.ok(accessory);
-    }
-
-    @GetMapping
-    public ResponseEntity<List<AccessoryModel>> getAllAccessories() {
-        List<AccessoryModel> accessories = accessoryService.listAll();
-        return ResponseEntity.ok(accessories);
     }
 
     @PostMapping

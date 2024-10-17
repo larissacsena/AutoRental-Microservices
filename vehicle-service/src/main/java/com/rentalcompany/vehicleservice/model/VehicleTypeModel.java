@@ -31,10 +31,10 @@ public class VehicleTypeModel {
 
     @OneToMany(mappedBy = "vehicleType", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("vehicleTypeReference")
-    private List<Vehicle> vehicles;
+    private List<VehicleModel> vehicles;
 
     @ManyToOne
     @JoinColumn(name = "fabricante_id", nullable = false)
     @JsonBackReference("manufacturerReference")
-    private ManufacturerModel manufacturerModel;
+    private ManufacturerModel manufacturer;
 }

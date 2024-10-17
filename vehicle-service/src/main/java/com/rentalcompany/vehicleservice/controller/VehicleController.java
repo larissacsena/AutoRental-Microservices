@@ -1,13 +1,12 @@
 package com.rentalcompany.vehicleservice.controller;
 
-import com.rentalcompany.vehicleservice.model.Vehicle;
+import com.rentalcompany.vehicleservice.model.VehicleModel;
 import com.rentalcompany.vehicleservice.service.VehicleService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -21,26 +20,26 @@ public class VehicleController {
     @Autowired
     private final VehicleService vehicleService;
 
-    @GetMapping("/")
+    @GetMapping
     public String hello() {
         return "hello-vehicle";
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Vehicle> findById(@PathVariable UUID id) {
-        Vehicle vehicle = vehicleService.findById(id);
+    public ResponseEntity<VehicleModel> findById(@PathVariable UUID id) {
+        VehicleModel vehicle = vehicleService.findById(id);
         return ResponseEntity.ok(vehicle);
     }
 
     @PostMapping
-    public ResponseEntity<Vehicle> save(@RequestBody @Valid Vehicle vehicle) {
-        Vehicle newVehicle = vehicleService.save(vehicle);
+    public ResponseEntity<VehicleModel> save(@RequestBody @Valid VehicleModel vehicle) {
+        VehicleModel newVehicle = vehicleService.save(vehicle);
         return ResponseEntity.status(HttpStatus.CREATED).body(newVehicle);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Vehicle> update(@PathVariable UUID id, @RequestBody Vehicle vehicle) {
-        Vehicle updatedVehicle = vehicleService.update(id, vehicle);
+    public ResponseEntity<VehicleModel> update(@PathVariable UUID id, @RequestBody VehicleModel vehicle) {
+        VehicleModel updatedVehicle = vehicleService.update(id, vehicle);
         return ResponseEntity.ok(updatedVehicle);
     }
 

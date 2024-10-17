@@ -68,7 +68,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: password
       SERVER_PORT: 8084
     depends_on:
-      - postgres-vehicle-db
+      - postgres-rental-db
 
 
 volumes:

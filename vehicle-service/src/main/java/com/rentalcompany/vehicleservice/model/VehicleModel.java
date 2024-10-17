@@ -21,7 +21,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo_veiculo", discriminatorType = DiscriminatorType.STRING)
-public class Vehicle {
+public class VehicleModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -57,7 +57,7 @@ public class Vehicle {
     @ManyToOne
     @JoinColumn(name = "modelo_id")
     @JsonBackReference("vehicleTypeReference")
-    private VehicleTypeModel vehicleTypeModel;
+    private VehicleTypeModel vehicleType;
 
     @ElementCollection
     @CollectionTable(name = "carro_datas_ocupadas", joinColumns = @JoinColumn(name = "carro_id"))

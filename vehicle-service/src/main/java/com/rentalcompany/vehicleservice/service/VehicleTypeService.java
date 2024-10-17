@@ -41,7 +41,7 @@ public class VehicleTypeService {
             VehicleTypeModel vehicleTypeModel = existingVehicleType.get();
             vehicleTypeModel.setDescription(updatedVehicleTypeModel.getDescription());
             vehicleTypeModel.setCategory(updatedVehicleTypeModel.getCategory());
-            vehicleTypeModel.setManufacturerModel(updatedVehicleTypeModel.getManufacturerModel());
+            vehicleTypeModel.setManufacturer(updatedVehicleTypeModel.getManufacturer());
 
             return vehicleTypeRepository.save(vehicleTypeModel);
         } else {
