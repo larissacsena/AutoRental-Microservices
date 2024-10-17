@@ -17,13 +17,10 @@
         <module name="eureka-server" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="rental-service" target="21" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="api-gateway" options="" />
+      <module name="api-gateway" options="-parameters" />
       <module name="api-gateway (1) (com.rentalcompany)" options="-parameters" />
       <module name="catalog-service" options="-parameters" />
       <module name="config-server" options="-parameters" />
