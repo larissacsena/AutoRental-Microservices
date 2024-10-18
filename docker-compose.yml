@@ -25,6 +25,18 @@ services:
     volumes:
       - postgres-insurance-data:/var/lib/postgresql/data
 
+  postgres-person-db:
+    image: postgres:13
+    container_name: postgres-person-db
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=person_db
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres-person-data:/var/lib/postgresql/data
+
   rental-service:
     build:
       context: ./rental-service
@@ -70,9 +82,25 @@ services:
     depends_on:
       - postgres-rental-db
 
+  person-service:
+    build:
+      context: ./person-service
+      dockerfile: Dockerfile
+    container_name: person-service
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-person-db:5432/person_db
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+      SERVER_PORT: 8083
+    depends_on:
+      - postgres-person-db
+
 
 volumes:
   postgres-rental-data:
   postgres-insurance-data:
   postgres-vehicle-data:
+  postgres-person-data:
 
