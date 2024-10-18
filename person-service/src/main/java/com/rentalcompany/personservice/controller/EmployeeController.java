@@ -1,7 +1,7 @@
 package com.rentalcompany.personservice.controller;
 
-import com.rentalcompany.personservice.service.DriverService;
-import com.rentalcompany.personservice.model.Driver;
+import com.rentalcompany.personservice.service.EmployeeService;
+import com.rentalcompany.personservice.model.Employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,30 +12,31 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/drivers")
-public class DriverController {
+@RequestMapping("/api/employees")
+public class EmployeeController {
 
-    private final DriverService driverService;
+
+    private final EmployeeService employeeService;
 
     @GetMapping({"/"})
-    public String driver() {
-        return "driver";
+    public String employee() {
+        return "employee";
     }
 
     @Autowired
-    public DriverController(DriverService driverService) {
-        this.driverService = driverService;
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
     @GetMapping
-    public List<Driver> getAllDrivers() {
-        return driverService.getAllDrivers();
+    public List<Employee> getAllEmployees() {
+        return employeeService.getAllEmployees();
     }
 
     @PostMapping
-    public ResponseEntity<?> createDriver(@RequestBody Driver driver) {
+    public ResponseEntity<?> createEmployee(@RequestBody Employee employee) {
         try {
-            Driver savedDriver = driverService.saveDriver(driver);
+            Employee savedDriver = employeeService.saveEmployee(employee);
             return new ResponseEntity<>(savedDriver, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -43,8 +44,8 @@ public class DriverController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Driver> getDriverById(@PathVariable UUID id) {
-        Driver driver = driverService.getDriverById(id);
+    public ResponseEntity<Employee> getEmployeeById(@PathVariable UUID id) {
+        Employee driver = employeeService.getEmployeeById(id);
         if (driver != null) {
             return new ResponseEntity<>(driver, HttpStatus.OK);
         } else {
@@ -53,9 +54,8 @@ public class DriverController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteDriver(@PathVariable UUID id) {
-        driverService.deleteDriver(id);
+    public ResponseEntity<Void> deleteEmployee(@PathVariable UUID id) {
+        employeeService.deleteEmployee(id);
         return ResponseEntity.noContent().build();
     }
-
 }
