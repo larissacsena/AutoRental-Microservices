@@ -21,6 +21,11 @@ public class VehicleController {
     @Autowired
     private final VehicleService vehicleService;
 
+    @GetMapping({"/"})
+    public String hello() {
+        return "Hello-vehicle";
+    }
+
     @GetMapping
     public ResponseEntity<List<VehicleModel>> listAll() {
         List<VehicleModel> vehicles = vehicleService.listAll();

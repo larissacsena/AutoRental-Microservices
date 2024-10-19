@@ -10,11 +10,11 @@ import java.util.UUID;
 
 public interface PersonRepository extends JpaRepository<Person, UUID> {
 
-    Optional<Person> findByCpf(String cpf);
+    Optional<Person> findByCPF(String CPF);
 
     @Query("SELECT p FROM Person p WHERE TYPE(p) = Person")
     List<Person> findAllPersons();
 
-    @Query("SELECT p FROM Person p WHERE TYPE(p) = Employee")
+    @Query("SELECT e.person FROM Employee e")
     List<Person> findAllEmployees();
 }

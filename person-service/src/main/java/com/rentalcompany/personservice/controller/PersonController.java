@@ -21,6 +21,11 @@ public class PersonController {
         this.personService = personService;
     }
 
+    @GetMapping({"/"})
+    public String hello() {
+        return "Hello-person";
+    }
+
     @GetMapping
     public List<Person> getAllPersons() {
         return personService.getAllPersons();
@@ -63,9 +68,9 @@ public class PersonController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deletePerson(@PathVariable UUID id) {
-        String message = personService.deletePerson(id);
-        return ResponseEntity.ok(message);
+    public ResponseEntity<Void> deletePerson(@PathVariable UUID id) {
+        personService.deletePerson(id);
+        return ResponseEntity.noContent().build();
     }
 
 }

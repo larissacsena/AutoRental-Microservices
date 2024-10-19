@@ -34,7 +34,7 @@ public class PersonService {
 
     public Person savePerson(Person person) {
 
-        if (personRepository.findByCpf(person.getCPF()).isPresent()) {
+            if (personRepository.findByCPF(person.getCPF()).isPresent()) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Já existe um registro com esse CPF");
         }
         return personRepository.save(person);

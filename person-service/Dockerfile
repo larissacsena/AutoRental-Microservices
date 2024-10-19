@@ -12,6 +12,6 @@ RUN ls -la /app/target
 FROM openjdk:21-jdk
 WORKDIR /app
 COPY --from=build /app/target/person-service-0.0.1-SNAPSHOT.jar /app/person-service.jar
-EXPOSE 8084
+EXPOSE 8083
 ENTRYPOINT ["java", "-jar", "person-service.jar"]
 
