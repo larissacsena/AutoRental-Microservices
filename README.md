@@ -270,6 +270,8 @@ Cada membro contribuiu com a implementação e validação das soluções propos
 
 ### Membros da Equipe
 
+- **Alice Lima** - https://github.com/alsoares086 
+
 - **Larissa Sena** - https://github.com/larissacsena
 
 - **Vinícius Almada** - https://github.com/AlmadaAlmada

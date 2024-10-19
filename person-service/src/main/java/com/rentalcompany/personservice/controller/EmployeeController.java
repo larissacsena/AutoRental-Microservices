@@ -1,3 +1,4 @@
+
 package com.rentalcompany.personservice.controller;
 
 import com.rentalcompany.personservice.model.Employee;
@@ -15,6 +16,11 @@ import java.util.UUID;
 public class EmployeeController {
 
     private final EmployeeService employeeService;
+  
+    @GetMapping({"/"})
+    public String employee() {
+        return "hello-employee";
+    }
 
     @Autowired
     public EmployeeController(EmployeeService employeeService) {
@@ -65,3 +71,4 @@ public class EmployeeController {
         return ResponseEntity.noContent().build();
     }
 }
+

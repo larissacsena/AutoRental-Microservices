@@ -1,3 +1,4 @@
+
 # Etapa de build
 FROM maven:latest AS build
 WORKDIR /app
@@ -11,5 +12,6 @@ RUN ls -la /app/target
 FROM openjdk:21-jdk
 WORKDIR /app
 COPY --from=build /app/target/person-service-0.0.1-SNAPSHOT.jar /app/person-service.jar
-EXPOSE 8082
+EXPOSE 8084
 ENTRYPOINT ["java", "-jar", "person-service.jar"]
+
