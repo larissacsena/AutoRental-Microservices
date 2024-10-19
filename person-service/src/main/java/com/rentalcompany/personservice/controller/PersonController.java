@@ -16,11 +16,6 @@ import java.util.UUID;
 public class PersonController {
     private final PersonService personService;
 
-    @GetMapping({"/"})
-    public String hello() {
-        return "Hello";
-    }
-
     @Autowired
     public PersonController(PersonService personService) {
         this.personService = personService;
@@ -51,10 +46,26 @@ public class PersonController {
         }
     }
 
+    @GetMapping("/employees")
+    public ResponseEntity<List<Person>> getAllEmployees() {
+        List<Person> employees = personService.getAllEmployees();
+        return ResponseEntity.ok(employees);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Person> updatePerson(@PathVariable UUID id, @RequestBody Person personDetails) {
+        Person updatedPerson = personService.updatePerson(id, personDetails);
+        if (updatedPerson != null) {
+            return ResponseEntity.ok(updatedPerson);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePerson(@PathVariable UUID id) {
-        personService.deletePerson(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<String> deletePerson(@PathVariable UUID id) {
+        String message = personService.deletePerson(id);
+        return ResponseEntity.ok(message);
     }
 
 }

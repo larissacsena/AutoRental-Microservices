@@ -1,3 +1,4 @@
+
 package com.rentalcompany.personservice.repository;
 
 import com.rentalcompany.personservice.model.Employee;
@@ -7,3 +8,4 @@ import java.util.UUID;
 
 public interface EmployeeRepository extends JpaRepository<Employee, UUID> {
 }
+

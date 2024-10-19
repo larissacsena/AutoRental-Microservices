@@ -24,11 +24,12 @@ public class EmployeeService {
         return employeeRepository.findById(id).orElse(null);
     }
 
-    public Employee saveEmployee(Employee driver) {
-        return employeeRepository.save(driver);
+    public Employee saveEmployee(Employee employee) {
+        return employeeRepository.save(employee);
     }
 
     public void deleteEmployee(UUID id) {
         employeeRepository.deleteById(id);
     }
 }
+
