@@ -16,7 +16,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
-@Table(name = "pessoas")
+@Table(name = "persons")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo_pessoa", discriminatorType = DiscriminatorType.STRING)
 @Data
@@ -29,19 +29,19 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.UUID)
     protected UUID id;
 
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "O preenchimento campo nome é obrigatório")
     @Column(name = "nome", nullable = false, length = 50)
     protected String name;
 
-    @Past(message = "Birthdate must be in the past")
+    @Past(message = "Data de aniversário incorreta")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "data_nascimento", nullable = false)
     protected LocalDate birthDate;
 
     @JsonProperty("CPF")
-    @NotBlank(message = "CPF is mandatory")
-    @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", message = "Invalid CPF format")
-    @Column(nullable = false, unique = true, length = 14)
+    @NotBlank(message = "Número do CPF não informado")
+    @Pattern(regexp = "\\d{11}", message = "CPF inválido")
+    @Column(nullable = false, unique = true, length = 11)
     protected String CPF;
 
     @Enumerated(EnumType.STRING)
@@ -49,7 +49,10 @@ public class Person {
     protected Gender gender;
 
     @Email(message = "Invalid email format")
-    @NotBlank(message = "Email is mandatory")
+    @NotBlank(message = "Informe o endereço de e-mail")
     @Column(name = "email", nullable = false, unique = true, length = 30)
     protected String email;
+
+    @Column(name = "tipo_pessoa", nullable = false, insertable = false, updatable = false)
+    protected String tipoPessoa = "Person";
 }
