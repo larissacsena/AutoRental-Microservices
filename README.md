@@ -274,4 +274,6 @@ Cada membro contribuiu com a implementação e validação das soluções propos
 
 - **Larissa Sena** - https://github.com/larissacsena
 
+- **Pietra Almeida** - https://github.com/almeidapietra
+
 - **Vinícius Almada** - https://github.com/AlmadaAlmada
