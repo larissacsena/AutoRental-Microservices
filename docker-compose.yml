@@ -1,6 +1,7 @@
 version: '3.8'
 
 services:
+
   localstack:
     image: localstack/localstack:latest
     ports:
@@ -11,8 +12,8 @@ services:
       - EDGE_PORT=4566
       - AWS_DEFAULT_REGION=us-east-1
     volumes:
-      - "./localstack:/tmp/localstack"
-      -
+      - "./localstack_data:/var/lib/localstack"
+
   postgres-rental-db:
     image: postgres:13
     container_name: postgres-rental-db
