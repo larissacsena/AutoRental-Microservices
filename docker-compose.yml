@@ -8,7 +8,7 @@ services:
       - "4566:4566"
       - "4571:4571"
     environment:
-      - SERVICES=sqs,sns
+      - SERVICES=sqs,sns,apigateway
       - EDGE_PORT=4566
       - AWS_DEFAULT_REGION=us-east-1
     volumes:
@@ -42,7 +42,6 @@ services:
     image: postgres:13
     container_name: postgres-person-db
     environment:
-
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=person_db
@@ -81,7 +80,6 @@ services:
     depends_on:
       - postgres-insurance-db
 
-
   vehicle-service:
     build:
       context: ./vehicle-service
@@ -112,10 +110,8 @@ services:
     depends_on:
       - postgres-person-db
 
-
 volumes:
   postgres-rental-data:
   postgres-insurance-data:
   postgres-vehicle-data:
   postgres-person-data:
-
