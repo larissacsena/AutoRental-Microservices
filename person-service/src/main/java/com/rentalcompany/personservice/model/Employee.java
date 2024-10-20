@@ -27,6 +27,4 @@ public class Employee {
     @OneToOne
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private Person person;
-
-
 }

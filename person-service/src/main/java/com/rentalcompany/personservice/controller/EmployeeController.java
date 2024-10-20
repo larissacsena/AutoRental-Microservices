@@ -34,7 +34,7 @@ public class EmployeeController {
 
     @PostMapping
     public ResponseEntity<?> createEmployee(@RequestBody Employee employee) {
-        System.out.println(employee); // Adicionada linha para depuração
+        System.out.println(employee);
         try {
             Employee savedEmployee = employeeService.saveEmployee(employee);
             return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
@@ -60,7 +60,7 @@ public class EmployeeController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        employee.setId(id); // Assegura que o ID é mantido
+        employee.setId(id);
         Employee savedEmployee = employeeService.saveEmployee(employee);
         return new ResponseEntity<>(savedEmployee, HttpStatus.OK);
     }
