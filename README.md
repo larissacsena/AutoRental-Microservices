@@ -265,7 +265,7 @@ locadora-veiculos/            <- Diretório raiz do projeto de locadora de veíc
 
 ## Desenvolvimento
 
-Este projeto foi desenvolvido em colaboração por uma equipe de 7 pessoas.
+Este projeto foi desenvolvido em colaboração por uma equipe de 4 pessoas.
 Cada membro contribuiu com a implementação e validação das soluções propostas para os exercícios.
 
 ### Membros da Equipe
