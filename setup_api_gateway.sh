@@ -18,19 +18,19 @@ create_api_gateway() {
     # Adicionar métodos para os serviços
     # Método GET para rental-service
     aws --endpoint-url=http://localhost:4566 apigateway put-method --rest-api-id $API_ID --resource-id $RESOURCE_RENTAL_ID --http-method GET --authorization-type NONE
-    aws --endpoint-url=http://localhost:4566 apigateway put-integration --rest-api-id $API_ID --resource-id $RESOURCE_RENTAL_ID --http-method GET --integration-http-method GET --type HTTP --uri "http://rental-service:8081/api/rentals"
+    aws --endpoint-url=http://localhost:4566 apigateway put-integration --rest-api-id $API_ID --resource-id $RESOURCE_RENTAL_ID --http-method GET --integration-http-method GET --type HTTP --uri "http://localhost:8081/api/rentals"
 
     # Método GET para person-service
     aws --endpoint-url=http://localhost:4566 apigateway put-method --rest-api-id $API_ID --resource-id $RESOURCE_PERSON_ID --http-method GET --authorization-type NONE
-    aws --endpoint-url=http://localhost:4566 apigateway put-integration --rest-api-id $API_ID --resource-id $RESOURCE_PERSON_ID --http-method GET --integration-http-method GET --type HTTP --uri "http://person-service:8083/api/persons"
+    aws --endpoint-url=http://localhost:4566 apigateway put-integration --rest-api-id $API_ID --resource-id $RESOURCE_PERSON_ID --http-method GET --integration-http-method GET --type HTTP --uri "http://localhost:8083/api/persons"
 
     # Método GET para insurance-service
     aws --endpoint-url=http://localhost:4566 apigateway put-method --rest-api-id $API_ID --resource-id $RESOURCE_INSURANCE_ID --http-method GET --authorization-type NONE
-    aws --endpoint-url=http://localhost:4566 apigateway put-integration --rest-api-id $API_ID --resource-id $RESOURCE_INSURANCE_ID --http-method GET --integration-http-method GET --type HTTP --uri "http://insurance-service:8082/api/insurances"
+    aws --endpoint-url=http://localhost:4566 apigateway put-integration --rest-api-id $API_ID --resource-id $RESOURCE_INSURANCE_ID --http-method GET --integration-http-method GET --type HTTP --uri "http://localhost:8082/api/insurances"
 
     # Método GET para vehicle-service
     aws --endpoint-url=http://localhost:4566 apigateway put-method --rest-api-id $API_ID --resource-id $RESOURCE_VEHICLE_ID --http-method GET --authorization-type NONE
-    aws --endpoint-url=http://localhost:4566 apigateway put-integration --rest-api-id $API_ID --resource-id $RESOURCE_VEHICLE_ID --http-method GET --integration-http-method GET --type HTTP --uri "http://vehicle-service:8084/api/vehicles"
+    aws --endpoint-url=http://localhost:4566 apigateway put-integration --rest-api-id $API_ID --resource-id $RESOURCE_VEHICLE_ID --http-method GET --integration-http-method GET --type HTTP --uri "http://localhost:8084/api/vehicles"
 
     # Deploy do API
     aws --endpoint-url=http://localhost:4566 apigateway create-deployment --rest-api-id $API_ID --stage-name prod
